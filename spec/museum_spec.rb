@@ -75,19 +75,21 @@ RSpec.describe Museum do
     @patron_2.add_interest("Dead Sea Scrolls")
     @patron_3.add_interest("Dead Sea Scrolls")
 
-    expect(@dmns.patrons_by_exhibit_interest.class).to eq(hash)
-    # =>
-    # {
-    #   #<Exhibit:0x00007fb202238618...> => [#<Patron:0x00007fb2011455b8...>],
-    #   #<Exhibit:0x00007fb202248748...> => [#<Patron:0x00007fb2011455b8...>, #<Patron:0x00007fb20227f8b0...>, #<Patron:0x6666fb20114megan...>],
-    #   #<Exhibit:0x00007fb20225f8d0...> => []
-    # }
+    expect(@dmns.patrons_by_exhibit_interest.class).to eq(Hash)
+    # # expect(@dmns.patrons_by_exhibit_interest).to eq({#<Exhibit:0x00007ff32a165178 @cost=0, @name="Gems and Minerals">=>
+    # [#<Patron:0x00007ff32a164d18 @interests=["Gems and Minerals", "Dead Sea Scrolls"], @name="Bob", @spending_money=20>],
+    # #<Exhibit:0x00007ff32a164f48 @cost=10, @name="Dead Sea Scrolls">=>
+    # [#<Patron:0x00007ff32a164d18 @interests=["Gems and Minerals", "Dead Sea Scrolls"], @name="Bob", @spending_money=20>,
+    # #<Patron:0x00007ff32a164ae8 @interests=["Dead Sea Scrolls"], @name="Sally", @spending_money=20>,
+    # #<Patron:0x00007ff32a1649a8 @interests=["Dead Sea Scrolls"], @name="Johnny", @spending_money=5>],
+    # #<Exhibit:0x00007ff32a164e58 @cost=15, @name="IMAX">=>[]})
+
   end
 
-  xit 'can return lottery contestants and choose winner' do
-    @dmns.add_exhibit(gems_and_minerals)
-    @dmns.add_exhibit(dead_sea_scrolls)
-    @dmns.add_exhibit(imax)
+  it 'can return lottery contestants and choose winner' do
+    @dmns.add_exhibit(@gems_and_minerals)
+    @dmns.add_exhibit(@dead_sea_scrolls)
+    @dmns.add_exhibit(@imax)
 
     @patron_1.add_interest("Gems and Minerals")
     @patron_1.add_interest("Dead Sea Scrolls")
