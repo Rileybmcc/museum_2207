@@ -34,7 +34,7 @@ RSpec.describe Museum do
     expect(@dmns.exhibits.count).to eq(3)
   end
 
-  xit 'can recommendexhibits' do
+  it 'can recommendexhibits' do
 
     @patron_1.add_interest("Dead Sea Scrolls")
     @patron_1.add_interest("Gems and Minerals")
