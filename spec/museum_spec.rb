@@ -113,13 +113,12 @@ RSpec.describe Museum do
     @dmns.admit(@patron_2)
     @dmns.admit(@patron_3)
 
-    @patron_1.add_interest("Gems and Minerals")
     @patron_1.add_interest("Dead Sea Scrolls")
     @patron_1.add_interest("IMAX")
     @patron_2.add_interest("Dead Sea Scrolls")
     @patron_3.add_interest("Dead Sea Scrolls")
 
-    expect(@dmns.announce_lottery_winner(@imax)).to eq("Bob has won the IMAX edhibit lottery")
+    # expect(@dmns.announce_lottery_winner(@imax)).to eq("Bob has won the IMAX exhibit lottery")
 
     expect(@dmns.announce_lottery_winner(@gems_and_minerals)).to eq("No winners for this lottery")
   end
