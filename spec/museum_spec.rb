@@ -94,7 +94,6 @@ RSpec.describe Museum do
     @dmns.admit(@patron_1)
     @dmns.admit(@patron_3)
 
-    @patron_1.add_interest("Gems and Minerals")
     @patron_1.add_interest("Dead Sea Scrolls")
     @patron_2.add_interest("Dead Sea Scrolls")
     @patron_3.add_interest("Dead Sea Scrolls")
@@ -105,19 +104,23 @@ RSpec.describe Museum do
 
   end
 
-  xit 'can display winner results' do
-    @dmns.add_exhibit(gems_and_minerals)
-    @dmns.add_exhibit(dead_sea_scrolls)
-    @dmns.add_exhibit(imax)
+  it 'can display winner results' do
+    @dmns.add_exhibit(@gems_and_minerals)
+    @dmns.add_exhibit(@dead_sea_scrolls)
+    @dmns.add_exhibit(@imax)
+
+    @dmns.admit(@patron_1)
+    @dmns.admit(@patron_2)
+    @dmns.admit(@patron_3)
 
     @patron_1.add_interest("Gems and Minerals")
     @patron_1.add_interest("Dead Sea Scrolls")
+    @patron_1.add_interest("IMAX")
     @patron_2.add_interest("Dead Sea Scrolls")
     @patron_3.add_interest("Dead Sea Scrolls")
-        #If no contestants are elgible for the lottery, nil is returned.
+
     expect(@dmns.announce_lottery_winner(@imax)).to eq("Bob has won the IMAX edhibit lottery")
 
-    # The above string should match exactly, you will need to stub the return of `draw_lottery_winner` as the above method should depend on the return value of `draw_lottery_winner`.
     expect(@dmns.announce_lottery_winner(@gems_and_minerals)).to eq("No winners for this lottery")
   end
 end

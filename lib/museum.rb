@@ -35,4 +35,15 @@ class Museum
     final
   end
 
+  def ticket_lottery_contestants(theme)
+    # require "pry"; binding.pry
+    # wasd = @patrons.select { |hommie| hommie.interests.map { |thing| thing.downcase}.include?(theme.downcase)}
+    patrons_by_exhibit_interest[theme].map { |human| human.name  }
+    # require "pry"; binding.pry
+  end
+
+  def draw_lottery_winner(theme)
+    ticket_lottery_contestants(theme).shuffle.first
+  end
+
 end
