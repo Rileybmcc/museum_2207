@@ -16,7 +16,7 @@ RSpec.describe Exhibit do
     expect(@exhibit.name).to eq("Gems and Minerals")
   end
 
-  xit 'can access exhibit cost' do
+  it 'can access exhibit cost' do
     expect(@exhibit.cost).to eq(0)
   end
 
