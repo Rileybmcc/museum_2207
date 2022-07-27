@@ -1,8 +1,9 @@
 
 class Museum
-  attr_reader
+  attr_reader :name
 
-  def initialize(thing)
+  def initialize(name)
+    @name = name
 
   end
 
