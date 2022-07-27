@@ -12,4 +12,13 @@ class Museum
     @exhibits << new_thing
   end
 
+  def recommend_exhibits(dude)
+    return_me = []
+    dude.interests.each do |interest|
+      @exhibits.each { |exhibit| return_me << exhibit.name if exhibit.name.downcase == interest.downcase }
+
+    end
+    return_me
+  end
+
 end
