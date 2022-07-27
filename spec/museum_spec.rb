@@ -18,7 +18,7 @@ RSpec.describe Museum do
     expect(@dmns).to be_instance_of(Museum)
   end
 
-  xit 'can access museum name' do
+  it 'can access museum name' do
     expect(@dmns.name).to eq("Denver Museum of Nature and Science")
   end
 
