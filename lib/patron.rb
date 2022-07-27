@@ -1,8 +1,8 @@
 class Patron
-  attr_reader
+  attr_reader :name
 
-  def initialize(thing, thing_2)
-
+  def initialize(name, thing_2)
+    @name = name
 
   end
 
