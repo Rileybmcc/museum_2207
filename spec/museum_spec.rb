@@ -53,7 +53,7 @@ RSpec.describe Museum do
   end
 
 
-  xit 'can admit patrons' do
+  it 'can admit patrons' do
     @dmns.admit(@patron_1)
     @dmns.admit(@patron_2)
     @dmns.admit(@patron_3)
