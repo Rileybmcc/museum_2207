@@ -23,4 +23,8 @@ class Museum
     return_me
   end
 
+  def admit(visitor)
+    @patrons << visitor
+  end
+
 end
