@@ -8,5 +8,8 @@ class Museum
     @exhibits = []
   end
 
+  def add_exhibit(new_thing)
+    @exhibits << new_thing
+  end
 
 end
