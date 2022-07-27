@@ -9,5 +9,8 @@ class Patron
     @interests = []
   end
 
+  def add_interest(int)
+    @interests << int
+  end
 
 end
