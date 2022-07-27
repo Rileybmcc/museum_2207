@@ -21,7 +21,7 @@ RSpec.describe Patron do
     expect(@patron_1.interests).to eq([])
   end
 
-  xit 'can add interests to interest array' do
+  it 'can add interests to interest array' do
     @patron_1.add_interest("Dead Sea Scrolls")
     @patron_1.add_interest("Gems and Minerals")
 
