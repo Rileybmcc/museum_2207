@@ -46,4 +46,12 @@ class Museum
     ticket_lottery_contestants(theme).shuffle.first
   end
 
+  def announce_lottery_winner(theme)
+    wasd = draw_lottery_winner(theme)
+    if wasd == nil
+      "No winners for this lottery"
+    else
+     "#{wasd} has won the #{theme.name} exhibit lottery"
+    end
+  end
 end
