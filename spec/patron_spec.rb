@@ -10,7 +10,7 @@ RSpec.describe Patron do
   end
 
   it 'can access patron name' do
-    @patron_1.name.to eq("Bob")
+    expect(@patron_1.name).to eq("Bob")
   end
 
   xit 'can access patron spending money' do
