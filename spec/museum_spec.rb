@@ -11,6 +11,7 @@ RSpec.describe Museum do
     @imax = Exhibit.new({name: "IMAX",cost: 15})
     @patron_1 = Patron.new("Bob", 20)
     @patron_2 = Patron.new("Sally", 20)
+    @patron_3 = Patron.new("Johnny", 5)
 
   end
 
@@ -45,5 +46,71 @@ RSpec.describe Museum do
 
     expect(@dmns.recommend_exhibits(@patron_1)).to eq(["Dead Sea Scrolls", "Gems and Minerals"])
     expect(@dmns.recommend_exhibits(@patron_2).count).to eq(1)
+  end
+
+  it 'can access patrons array' do
+    expect(@dmns.patrons).to eq([])
+  end
+
+
+  xit 'can admit patrons' do
+    @dmns.admit(@patron_1)
+    @dmns.admit(@patron_2)
+    @dmns.admit(@patron_3)
+
+    @dmns.patrons
+  end
+
+  xit 'can display patrons by interests' do
+    @dmns.add_exhibit(gems_and_minerals)
+    @dmns.add_exhibit(dead_sea_scrolls)
+    @dmns.add_exhibit(imax)
+
+    @patron_1.add_interest("Gems and Minerals")
+    @patron_1.add_interest("Dead Sea Scrolls")
+    @patron_2.add_interest("Dead Sea Scrolls")
+    @patron_3.add_interest("Dead Sea Scrolls")
+
+    expect(@dmns.patrons_by_exhibit_interest.class).to eq(hash)
+    # =>
+    # {
+    #   #<Exhibit:0x00007fb202238618...> => [#<Patron:0x00007fb2011455b8...>],
+    #   #<Exhibit:0x00007fb202248748...> => [#<Patron:0x00007fb2011455b8...>, #<Patron:0x00007fb20227f8b0...>, #<Patron:0x6666fb20114megan...>],
+    #   #<Exhibit:0x00007fb20225f8d0...> => []
+    # }
+  end
+
+  xit 'can return lottery contestants and choose winner' do
+    @dmns.add_exhibit(gems_and_minerals)
+    @dmns.add_exhibit(dead_sea_scrolls)
+    @dmns.add_exhibit(imax)
+
+    @patron_1.add_interest("Gems and Minerals")
+    @patron_1.add_interest("Dead Sea Scrolls")
+    @patron_2.add_interest("Dead Sea Scrolls")
+    @patron_3.add_interest("Dead Sea Scrolls")
+
+    expect(@dmns.ticket_lottery_contestants(@dead_sea_scrolls).count).to eq(2)
+        # => [#<Patron:0x00007fb2011455b8...>, #<Patron:0x6666fb20114megan...>]
+    expect(@dmns.draw_lottery_winner(@dead_sea_scrolls).count).to eq(1)
+        # => "Johnny" or "Bob" can be returned here. Fun!
+    expect(@dmns.draw_lottery_winner(@gems_and_minerals)).to eq(nil)
+
+  end
+
+  xit 'can display winner results' do
+    @dmns.add_exhibit(gems_and_minerals)
+    @dmns.add_exhibit(dead_sea_scrolls)
+    @dmns.add_exhibit(imax)
+
+    @patron_1.add_interest("Gems and Minerals")
+    @patron_1.add_interest("Dead Sea Scrolls")
+    @patron_2.add_interest("Dead Sea Scrolls")
+    @patron_3.add_interest("Dead Sea Scrolls")
+        #If no contestants are elgible for the lottery, nil is returned.
+    expect(@dmns.announce_lottery_winner(@imax)).to eq("Bob has won the IMAX edhibit lottery")
+
+    # The above string should match exactly, you will need to stub the return of `draw_lottery_winner` as the above method should depend on the return value of `draw_lottery_winner`.
+    expect(@dmns.announce_lottery_winner(@gems_and_minerals)).to eq("No winners for this lottery")
   end
 end
