@@ -17,7 +17,7 @@ RSpec.describe Patron do
     expect(@patron_1.spending_money).to eq(20)
   end
 
-  xit 'can access patron interests array' do
+  it 'can access patron interests array' do
     expect(@patron_1.interests).to eq([])
   end
 
