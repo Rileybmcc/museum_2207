@@ -12,7 +12,7 @@ RSpec.describe Exhibit do
     expect(@exhibit).to be_instance_of(Exhibit)
   end
 
-  xit 'can access exhibit name' do
+  it 'can access exhibit name' do
     expect(@exhibit.name).to eq("Gems and Minerals")
   end
 
