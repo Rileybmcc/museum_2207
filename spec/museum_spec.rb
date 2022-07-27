@@ -66,6 +66,10 @@ RSpec.describe Museum do
     @dmns.add_exhibit(@dead_sea_scrolls)
     @dmns.add_exhibit(@imax)
 
+    @dmns.admit(@patron_1)
+    @dmns.admit(@patron_2)
+    @dmns.admit(@patron_3)
+
     @patron_1.add_interest("Gems and Minerals")
     @patron_1.add_interest("Dead Sea Scrolls")
     @patron_2.add_interest("Dead Sea Scrolls")
