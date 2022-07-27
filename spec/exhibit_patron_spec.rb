@@ -1,11 +1,11 @@
 require './lib/exhibit'
 require './lib/patron'
 
-RSpec.describe Exhibit and Patron do
+RSpec.describe Exhibit do
 
   before :each do
     @exhibit = Exhibit.new({name: "Gems and Minerals", cost: 0})
-    @patron_1 = Patron.new("Bob", 20)
+    # @patron_1 = Patron.new("Bob", 20)
   end
 
   it 'can create instance of Exhibit' do
