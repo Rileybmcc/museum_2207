@@ -27,4 +27,12 @@ class Museum
     @patrons << visitor
   end
 
+  def patrons_by_exhibit_interest
+    final = Hash.new
+    @exhibits.each do |exhibit|
+      final[exhibit] = @patrons.select { |guy| guy.interests.map { |thing| thing.downcase}.include?(exhibit.name.downcase) }
+    end
+    final
+  end
+
 end
