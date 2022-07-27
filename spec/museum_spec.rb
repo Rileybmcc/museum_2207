@@ -22,7 +22,7 @@ RSpec.describe Museum do
     expect(@dmns.name).to eq("Denver Museum of Nature and Science")
   end
 
-  xit 'can access exhibits array' do
+  it 'can access exhibits array' do
     expect(@dmns.exhibits).to eq([])
   end
 
