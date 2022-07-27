@@ -13,19 +13,19 @@ RSpec.describe Patron do
     expect(@patron_1.name).to eq("Bob")
   end
 
-  xit 'can access patron spending money' do
-    @patron_1.spending_money.to eq(20)
+  it 'can access patron spending money' do
+    expect(@patron_1.spending_money).to eq(20)
   end
 
   xit 'can access patron interests array' do
-    @patron_1.interests.to eq([])
+    expect(@patron_1.interests).to eq([])
   end
 
   xit 'can add interests to interest array' do
     @patron_1.add_interest("Dead Sea Scrolls")
     @patron_1.add_interest("Gems and Minerals")
 
-    @patron_1.interests.to eq(["Dead Sea Scrolls", "Gems and Minerals"])
+    expect(@patron_1.interests).to eq(["Dead Sea Scrolls", "Gems and Minerals"])
   end
 
 
